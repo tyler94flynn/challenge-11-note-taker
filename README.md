@@ -18,7 +18,7 @@
   ## Usage
   
 
-  [Demo of usage & tests]()
+  [Deployed Heroku Site]()
 
   ## License ![License](https://img.shields.io/badge/License-MIT-yellow.svg) [MIT](https://opensource.org/licenses/MIT)
 
