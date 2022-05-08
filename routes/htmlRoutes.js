@@ -1,8 +1,6 @@
 //import path, define router object
 const path = require('path');
-
-// import json data
-const data = require('../db/db.json');
+const router = require('express').Router();
 
 //get requests for each page
 router.get('/', (req, res) => {
