@@ -1,15 +1,19 @@
 //import path, define router object
 const path = require('path');
-const router = require('express').Router();
+const app = express();
 
 //get requests for each page
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
   });
   
-router.get('/notes', (req, res) => {
+app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/notes.html'));
   });
 
+//if no matching route, direct to main page
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+  });
 
-module.exports = router;
+module.exports = app;
