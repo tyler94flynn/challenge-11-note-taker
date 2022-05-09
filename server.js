@@ -1,6 +1,6 @@
 //import express define port
 const express = require('express');
-const port = 3001;
+const PORT = process.env.PORT || 3001;
 
 //import api & html routes
 const apiRoutes = require('./routes/apiRoutes');
@@ -19,7 +19,7 @@ app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
 //listening for connections
-app.listen(port, () => {
-    console.log(`App listening on port ${port}.`)
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}.`)
   })
 
