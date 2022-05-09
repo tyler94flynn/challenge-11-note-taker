@@ -4,7 +4,8 @@ const express = require('express');
 const router = express.Router();
 const uniqid = require('uniqid');
 
-const { createNote, findById, pushNote } = require('../lib/notes');
+const createNote = require('../lib/notes');
+    //findById, pushNote } 
 
 //import json data
 const data = require('../db/db.json');
@@ -15,7 +16,7 @@ router.get('/notes', (req, res) => {
 });
 
 //posts new data
-router.post("/notes", (req, res) => {
+router.post('/notes', (req, res) => {
     //gives unique id for request
     req.body.id = uniqid();
     
@@ -23,8 +24,6 @@ router.post("/notes", (req, res) => {
     const note = createNote(req.body, data);
     res.json(note);
 });
-
-
 
 //delete function goes here
 
