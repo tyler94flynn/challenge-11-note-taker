@@ -1,32 +1,32 @@
 //import fs, uniqid; start instance of express
 const fs = require('fs');
-const app = require('express');
+const express = require('express');
+const router = express.Router();
 const uniqid = require('uniqid');
+
+const { createNote, findById, pushNote } = require('../lib/notes');
 
 //import json data
 const data = require('../db/db.json');
 
 //retrives existing data
-app.get('/api/notes', (req, res) => {
+router.get('/notes', (req, res) => {
     res.json(data);
 });
 
 //posts new data
-app.post("/api/notes", (req, res) => {
+router.post("/notes", (req, res) => {
     //gives unique id for request
     req.body.id = uniqid();
-    notes.push(req.body);
-    //writes data
-    fs.writeFileSync(
-        path.join(__dirname, "./db/db.json"),
-        JSON.stringify(data, null, 2)
-    );
-    //returns the newly written data
-    res.json(data);
+    
+    //use createNote function from notes.js
+    const note = createNote(req.body, data);
+    res.json(note);
 });
 
 
 
+//delete function goes here
 
 
 module.exports = router;

@@ -1,11 +1,13 @@
-//import express, start express instance, define port
+//import express define port
 const express = require('express');
-const app = express();
 const port = 3001;
 
 //import api & html routes
 const apiRoutes = require('./routes/apiRoutes');
 const htmlRoutes = require('./routes/htmlRoutes');
+
+//start express instance
+const app = express();
 
 //setting defaults for express to use
 app.use(express.urlencoded({extended: true}));
