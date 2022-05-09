@@ -4,8 +4,8 @@ const express = require('express');
 const router = express.Router();
 const uniqid = require('uniqid');
 
+//import createNote function from lib
 const createNote = require('../lib/notes');
-    //findById, pushNote } 
 
 //import json data
 const data = require('../db/db.json');
@@ -24,8 +24,6 @@ router.post('/notes', (req, res) => {
     const note = createNote(req.body, data);
     res.json(note);
 });
-
-//delete function goes here
 
 
 module.exports = router;
